@@ -1,0 +1,23 @@
+# 3d SLAM
+roslaunch limo_bringup limo_start.launch pub_odom_tf:=true
+roslaunch astra_camera dabai_u3.launch
+roslaunch limo_bringup limo_rtabmap_orbbec.launch
+roslaunch limo_bringup rtabmap_rviz.launch
+roslaunch limo_bringup limo_teletop_keyboard.launch
+roslaunch limo_bringup basic.launch
+rtabmap-databaseViewer ~/.ros/rtabmap.db
+
+
+# basic control and RAWW
+roslaunch limo_bringup limo_teletop_keyboard.launch
+
+roslaunch cslg raww.launch
+
+
+# radar
+roslaunch ydlidar_ros X2L.launch
+roslaunch limo_base limo_base.launch
+rosrun cslg radar_obstacle_avoidance.py
+rosrun cslg radar_visualize.py
+
+roslaunch cslg rdoa.launch
