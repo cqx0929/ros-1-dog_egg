@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# @FileName  :radar_manager_0.1.py
+# @FileName  :radar_manager_1.py
 # @Time      :2023/9/11 13:00
 # @Author    :CQX0929
 import cv2
@@ -35,12 +35,12 @@ class RadarManager(object):
             x, y = (
                 int(math.cos(theta) * rou + self.r),
                 int(-math.sin(theta) * rou + self.r))
-            cv2.circle(self.img, (x, y), 1, 255, thickness=cv2.FILLED)
+            cv2.circle(self.img, (x, y), 1, (255, 255, 255), thickness=cv2.FILLED)
         self.show()
 
     def show(self):
         cv2.imshow('img', self.img)
-        if cv2.waitKey(0) > 0:
+        if cv2.waitKey(1) > 0:
             cv2.destroyAllWindows()
 
 
