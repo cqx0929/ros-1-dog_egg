@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# @FileName  :cv2-1-moment_test.py
+# @FileName  :cv2_1_moment_test.py
 # @Time      :2023/9/14 20:32
 # @Author    :CQX0929
 

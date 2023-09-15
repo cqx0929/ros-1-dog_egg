@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# @FileName  :socket-1-request.py
+# @FileName  :socket_1_request.py
 # @Time      :2023/9/15 13:02
 # @Author    :CQX0929
+import time
 import socket
-import numpy as np
-from radar_manager_1 import RadarManager
+from radar_manager import RadarManager
 
 
 class SocketRequest(RadarManager):
@@ -23,16 +23,21 @@ class SocketRequest(RadarManager):
         self.client_socket.connect((server_host, server_port))
 
     def run(self):
+        fps = 0
+        t = time.perf_counter()
         while True:
             # 接收服务器的响应
-            data = self.client_socket.recv(10240)
-            if len(data) == 0:
+            radar_data = self.client_socket.recv(2000)
+            if len(radar_data) == 0:
                 break
-            data = eval(data.decode())
-            self.axis()
-            self.radar_data_to_cartesian_coordinate(data)
-            self.show()
-            # self.radar_data_to_cartesian_coordinate(np.array(tuple(data.decode())))
+            radar_data = radar_data.decode().split(' ')
+            radar_data = [float(i) for i in radar_data if i != '']
+            self.visualize_laser_data(radar_data)
+            fps += 1
+            if time.perf_counter() - t > 1:
+                print(fps)
+                fps = 0
+                t = time.perf_counter()
 
         # 关闭连接
         self.client_socket.close()
