@@ -20,7 +20,7 @@ class RadarManager(object):
         self.r_sep = float()  # 雷达长度和像素转换比例
 
     def radar_data_pre_process(self):
-        self.radar_data = np.array(self.radar_data)
+        self.radar_data = np.array(self.radar_data)  # 将tuple转换为array
         for i in range(1, len(self.radar_data)-1):
             if self.radar_data[i] <= 0:
                 self.radar_data[i] = (self.radar_data[i-1]*self.radar_data[i-1])**(1/2)
@@ -40,6 +40,7 @@ class RadarManager(object):
         return x, y
 
     def draw_radar_points(self, radar_data):
+        # 遍历雷达数据从极坐标转化为直角坐标
         for i in range(len(radar_data)):
             x, y = self.radar_data_to_cartesian_coordinate(i, radar_data[i])
             if x <= self.a and y <= self.a:
@@ -52,21 +53,14 @@ class RadarManager(object):
 
     def one_frame(self):
         if self.radar_data is not None:
-            # 获取并处理激光数据
-            self.radar_data_pre_process()
-            # 绘制坐标线
-            self.axis()
-            # 计算角度步长
+            self.radar_data_pre_process()  # 获取并处理激光数据
+            self.axis()  # 绘制坐标线
             self.radar_angle_sep = self.radar_angle / len(self.radar_data)  # 雷达角度步长
-            # 设定雷达最大距离
             # self.radar_distance = max(self.radar_data)  # 雷达最大距离
-            self.radar_distance = 10.0
-            # 雷达距离与像素之间的转换
-            self.r_sep = self.r / self.radar_distance  # 雷达长度和像素转换比例
-            # 绘图
-            self.draw_radar_points(self.radar_data)
-            # 展示
-            self.show(1)
+            self.radar_distance = 10.0  # 设定雷达最大距离
+            self.r_sep = self.r / self.radar_distance  # # 雷达距离与像素之间的转换比例
+            self.draw_radar_points(self.radar_data)  # 绘图
+            self.show(1)  # 展示
         else:
             print("等待激光数据...")
 
