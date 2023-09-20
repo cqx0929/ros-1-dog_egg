@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @FileName  :radar_obstacle_avoidance.py
+# @FileName  :radar_3_obstacle_avoidance.py
 # @Time      :2023/9/6 13:39
 # @Author    :CQX0929
 
 
 import rospy
-from run_as_we_want import RaWw
+from vel_1_run_as_we_want import RaWw
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 

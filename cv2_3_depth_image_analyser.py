@@ -13,7 +13,7 @@ class DepthImageAnalyser(object):
             measure_area=10000  # m*10^3
     ):
         # self.file_name: str = 'depth_image.txt'
-        self.file_name: Path = Path('depth_image.txt')
+        self.file_name: Path = Path('txt/depth_image.txt')
         self.depth_img_save_path: Path = Path('img') / Path('depth_image.jpg')
         self.save_img: bool = save_img
         self.show_2d: bool = show_2d

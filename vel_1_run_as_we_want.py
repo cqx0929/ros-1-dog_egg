@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @FileName  :run_as_we_want.py
+# @FileName  :vel_1_run_as_we_want.py
 # @Time      :2023/9/5 15:45
 # @Author    :CQX0929
 
@@ -36,7 +36,7 @@ class RaWw(object):
         # self.tz = 1.6  # 圆周运动目标角度 target z rad
 
         # 预定路线路径
-        self.routes_path = Path('routes.txt')
+        self.routes_path = Path('txt/routes.txt')
 
         # 预先声明计时起点
         self.t = None

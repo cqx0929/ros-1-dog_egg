@@ -5,7 +5,7 @@
 # @Author    :CQX0929
 import time
 import socket
-from radar_manager import RadarManager
+from radar_1_radar_manager import RadarManager
 
 
 class SocketRequest(RadarManager):

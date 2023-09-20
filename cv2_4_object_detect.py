@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# @FileName  :object_detect.py
+# @FileName  :cv2_4_object_detect.py
 # @Time      :2023/9/14 20:26
 # @Author    :CQX0929
 
