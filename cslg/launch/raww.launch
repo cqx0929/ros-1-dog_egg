@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Launch limo_base.launch -->
+  <include file="$(find limo_base)/launch/limo_base.launch" />
+
+  <!-- Run test.py using the rosrun command -->
+  <node name="RaWw" pkg="cslg" type="run_as_we_want.py" output="screen" />
+
+</launch>
+

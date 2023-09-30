@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- Launch limo_base.launch -->
+  <include file="$(find limo_base)/launch/limo_base.launch" />
+
+  <include file="$(find ydlidar_ros)/launch/lidar.launch" />
+  <!-- Run test.py using the rosrun command -->
+  <node name="test_node" pkg="cslg" type="laser.py" output="screen" />
+
+</launch>
+

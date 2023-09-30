@@ -1,0 +1,12 @@
+<launch>
+  <!-- 启动 YDLidar 节点 -->
+  <include file="$(find ydlidar_ros)/launch/X2L.launch" />
+
+  <!-- 启动 limo_base 节点 -->
+  <include file="$(find limo_base)/launch/limo_base.launch" />
+
+  <!-- 启动 radar_obstacle_avoidance.py 脚本 -->
+  <node name="radar_obstacle_avoidance" pkg="cslg" type="radar_obstacle_avoidance.py" output="screen" />
+
+</launch>
+

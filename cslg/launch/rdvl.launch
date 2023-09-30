@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- 启动ydlidar_ros -->
+  <include file="$(find ydlidar_ros)/launch/X2L.launch" />
+
+  <!-- 启动limo_base -->
+  <include file="$(find limo_base)/launch/limo_base.launch" />
+
+  <!-- 启动radar_visualize.py -->
+  <node name="radar_visualize" pkg="cslg" type="radar_visualize.py" output="screen" />
+
+</launch>
+

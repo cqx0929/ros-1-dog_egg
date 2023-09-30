@@ -1,0 +1,20 @@
+<launch>
+
+  <!-- Launch limo_start.launch with pub_odom_tf parameter set to true -->
+  <include file="$(find limo_bringup)/launch/limo_start.launch">
+    <arg name="pub_odom_tf" value="true" />
+  </include>
+
+  <!-- Launch astra_camera dabai_u3.launch -->
+  <include file="$(find astra_camera)/launch/dabai_u3.launch" />
+
+  <!-- Launch limo_rtabmap_orbbec.launch -->
+  <include file="$(find limo_bringup)/launch/limo_rtabmap_orbbec.launch" />
+
+  <!-- Launch rtabmap_rviz.launch -->
+  <include file="$(find limo_bringup)/launch/rtabmap_rviz.launch" />
+
+  <!-- Launch limo_teletop_keyboard.launch -->
+  <!-- include file="$(find limo_bringup)/launch/limo_teletop_keyboard.launch" -->
+
+</launch>
